@@ -5,7 +5,7 @@ let data = JSON.parse(rawdata);
 var lasttime = -1;
 var moving = 0;
 var connected = 0;
-var actions = []
+var actions = [ 'forward', 'back', 'left', 'right']
 var lastaction;
 var pi = 3.14159;
 var moveinterval = 2; // 2 second movement interval
@@ -43,7 +43,7 @@ bot.on('time', function() {
                 bot.look(yaw,pitch,false);
                 lastaction = actions[Math.floor(Math.random() * actions.length)];
                 bot.setControlState(lastaction,true);
-                moving = 0;
+                moving = 1;
                 lasttime = bot.time.age;
                 bot.activateItem();
             }
